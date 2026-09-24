@@ -1,0 +1,2 @@
+ID,title,description,affectedQuantity,status,plant_ID
+dis-001,Plant A Production Failure,Production capacity reduced due to equipment failure,50,Open,plant-001

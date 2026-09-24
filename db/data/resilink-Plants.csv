@@ -1,0 +1,4 @@
+ID,name,location,plannedCapacity,availableCapacity
+plant-001,Plant A,Hyderabad,100,50
+plant-002,Plant B,Bengaluru,80,80
+plant-003,Plant C,Chennai,120,100

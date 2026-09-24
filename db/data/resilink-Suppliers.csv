@@ -1,0 +1,4 @@
+ID,name,material,capacity,leadTimeDays
+sup-001,ABC Components,Electronic Parts,40,3
+sup-002,Global Materials,Electronic Parts,60,5
+sup-003,Prime Supplies,Steel,100,4

@@ -1,0 +1,1 @@
+using ResilinkService as service from '../../srv/resilink-service';

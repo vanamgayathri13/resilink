@@ -1,0 +1,4 @@
+ID,material,quantity,plant_ID
+inv-001,Electronic Parts,200,plant-001
+inv-002,Electronic Parts,150,plant-002
+inv-003,Steel,300,plant-003

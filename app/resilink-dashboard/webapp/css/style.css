@@ -1,0 +1,373 @@
+/* Enter your custom styles here *//* ===== RESILINK DASHBOARD BASE ===== */
+
+.resilinkPage,
+.resilinkPage .sapMPageBgStandard {
+    background: #f1f5f9 !important;
+}
+
+.dashboardShell {
+    padding: 2rem 4%;
+    gap: 2rem;
+    box-sizing: border-box;
+}
+
+/* ===== HERO SECTION ===== */
+
+.heroSection {
+    background: linear-gradient(120deg, #101c3d, #174a78) !important;
+    padding: 2.5rem !important;
+    border-radius: 18px;
+    gap: 1rem;
+    box-shadow: 0 8px 25px rgba(15, 35, 75, 0.15);
+}
+
+.heroTitle,
+.heroHeadline,
+.heroSubtitle,
+.heroDescription {
+    color: #ffffff !important;
+}
+
+.heroTitle {
+    font-size: 2rem !important;
+    font-weight: 700;
+    margin-left: 12px;
+}
+
+.heroIcon {
+    color: #7dd3fc !important;
+    font-size: 2rem;
+}
+
+.heroSubtitle {
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+.heroHeadline {
+    font-size: 2rem !important;
+    margin-top: 1rem;
+}
+
+.heroDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ===== SECTION HEADINGS ===== */
+
+.sectionBlock {
+    gap: 1rem;
+}
+
+.sectionTitle {
+    color: #172b4d !important;
+    font-size: 1.5rem !important;
+    font-weight: 700;
+}
+
+.sectionSubtitle {
+    color: #64748b;
+}
+
+/* ===== KPI CARDS ===== */
+
+.metricsRow {
+    gap: 1rem;
+}
+
+.metricCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    flex: 1 1 210px;
+    min-width: 190px;
+    gap: 0.6rem;
+    box-shadow: 0 4px 12px rgba(15, 35, 75, 0.05);
+}
+
+.metricIcon {
+    font-size: 1.5rem;
+    color: #2563eb;
+}
+
+.metricLabel {
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.metricValue {
+    color: #14213d !important;
+    font-size: 2rem !important;
+    font-weight: 700;
+}
+
+/* ===== DISRUPTION CARD ===== */
+
+.disruptionCard {
+    background: #ffffff;
+    border: 1px solid #fecaca;
+    border-left: 5px solid #dc2626;
+    border-radius: 14px;
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(15, 35, 75, 0.05);
+}
+
+.cardHeadline {
+    color: #172b4d !important;
+    font-weight: 700;
+}
+
+.cardDescription {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* ===== RECOVERY INTELLIGENCE ===== */
+
+.recoveryCard {
+    background: #ffffff;
+    border: 1px solid #bbf7d0;
+    border-left: 5px solid #16a34a;
+    border-radius: 14px;
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(15, 35, 75, 0.05);
+}
+
+.plantRow {
+    gap: 1rem;
+}
+
+.plantCard {
+    background: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 1.5rem;
+    gap: 0.6rem;
+    flex: 1 1 220px;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+.plantIcon {
+    font-size: 1.8rem;
+    color: #2563eb;
+}
+
+/* ===== FOOTER ===== */
+
+.dashboardFooter {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    padding: 1rem;
+}
+/* =====================================
+   RESILINK - PREMIUM RECOVERY PLANT CARDS
+===================================== */
+
+.recoveryCard {
+    background: linear-gradient(135deg, #ffffff, #f3fbf7);
+    border: 1px solid #ccebd9;
+    border-left: 5px solid #16a34a;
+    border-radius: 18px;
+    padding: 28px;
+    margin-top: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Recovery heading */
+.alternativeTitle {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    color: #123b2b;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+/* Plant cards layout */
+.plantRow {
+    display: flex;
+    gap: 20px;
+    margin: 16px 0 24px;
+}
+
+/* Individual plant cards */
+.plantCard {
+    flex: 1 1 250px;
+    min-width: 220px;
+    padding: 24px;
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    border: 1px solid #d6e7ff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.05);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Hover animation */
+.plantCard:hover {
+    transform: translateY(-6px);
+    border-color: #3b82f6;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.13);
+}
+
+/* Plant factory icon */
+.plantIcon {
+    color: #2563eb;
+    font-size: 2rem;
+    margin-bottom: 14px;
+}
+
+/* Plant names */
+.plantCard .sapMTitle {
+    color: #12315b;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Available capacity */
+.plantCard .sapMObjStatus {
+    margin-top: 12px;
+    padding: 6px 10px;
+    background: #e8f8ee;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .plantRow {
+        flex-direction: column;
+    }
+
+    .plantCard {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .recoveryCard {
+        padding: 18px;
+    }
+}
+/* =========================================
+   RESILINK - PREMIUM NETWORK KPI CARDS
+========================================= */
+
+/* Section spacing */
+.resilinkDashboard .sectionBlock {
+    margin: 28px 0;
+}
+
+/* Section heading */
+.resilinkDashboard .sectionTitle {
+    color: #15345b;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* Section subtitle */
+.resilinkDashboard .sectionSubtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* KPI cards container */
+.resilinkDashboard .metricsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual KPI cards */
+.resilinkDashboard .metricCard {
+    flex: 1 1 200px;
+    min-width: 180px;
+    box-sizing: border-box;
+
+    padding: 24px;
+    background: linear-gradient(145deg, #ffffff, #f2f7ff);
+
+    border: 1px solid #e0eaff;
+    border-radius: 16px;
+    border-top: 4px solid #2563eb;
+
+    box-shadow: 0 5px 18px rgba(30, 64, 175, 0.06);
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.resilinkDashboard .metricCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(30, 64, 175, 0.12);
+}
+
+/* KPI icons */
+.resilinkDashboard .metricIcon {
+    color: #2563eb;
+    font-size: 1.7rem;
+    margin-bottom: 16px;
+}
+
+/* Warning icon */
+.resilinkDashboard .warningIcon {
+    color: #ea580c;
+}
+
+/* Risk icon */
+.resilinkDashboard .riskIcon {
+    color: #dc2626;
+}
+
+/* Success icon */
+.resilinkDashboard .successIcon {
+    color: #16a34a;
+}
+
+/* KPI labels */
+.resilinkDashboard .metricLabel {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+/* KPI numbers */
+.resilinkDashboard .metricValue {
+    color: #142d4e;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 4px 0 10px;
+}
+
+/* Small description */
+.resilinkDashboard .metricFootnote {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Responsive layout */
+@media (max-width: 700px) {
+    .resilinkDashboard .metricCard {
+        flex: 1 1 100%;
+    }
+
+    .resilinkDashboard .sectionBlock {
+        margin: 20px 0;
+    }
+}

@@ -1,0 +1,238 @@
+<mvc:View
+    controllerName="com.resilink.dashboard.resilinkdashboard.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" class="resilinkPage">
+
+        <content>
+            <VBox class="dashboardShell">
+
+                <!-- HERO -->
+                <VBox class="heroSection">
+
+                    <HBox justifyContent="SpaceBetween"
+                          alignItems="Center"
+                          wrap="Wrap">
+
+                        <VBox>
+                            <HBox alignItems="Center">
+                                <core:Icon
+                                    src="sap-icon://shipping-status"
+                                    class="heroIcon"/>
+
+                                <Title text="RESILINK"
+                                       level="H1"
+                                       class="heroTitle"/>
+                            </HBox>
+
+                            <Text text="INTELLIGENT SUPPLY CHAIN RESILIENCE"
+                                  class="heroSubtitle"/>
+                        </VBox>
+
+                        <ObjectStatus
+                            text="NETWORK MONITORING"
+                            state="Success"
+                            icon="sap-icon://connected"
+                            class="heroStatus"/>
+                    </HBox>
+
+                    <Title
+                        text="Your Supply Chain. Always Resilient."
+                        level="H1"
+                        class="heroHeadline"/>
+
+                    <Text
+                        text="Detect disruptions. Understand the impact. Discover smarter recovery paths."
+                        class="heroDescription"/>
+
+                    <ObjectStatus
+                        text="1 disruption requires attention"
+                        state="Warning"
+                        icon="sap-icon://alert"/>
+                </VBox>
+
+
+                <!-- KPI SECTION -->
+                <VBox class="sectionBlock">
+
+                    <Title text="Network at a Glance"
+                           level="H2"
+                           class="sectionTitle"/>
+
+                    <Text text="A live snapshot of your supply chain"
+                          class="sectionSubtitle"/>
+
+                    <FlexBox wrap="Wrap" class="metricsRow">
+
+                        <VBox class="metricCard">
+                            <core:Icon src="sap-icon://alert"
+                                       class="metricIcon"/>
+
+                            <Text text="ACTIVE DISRUPTIONS"
+                                  class="metricLabel"/>
+
+                            <Title text="01"
+                                   level="H1"
+                                   class="metricValue"/>
+
+                            <ObjectStatus text="Needs attention"
+                                          state="Warning"/>
+                        </VBox>
+
+                        <VBox class="metricCard">
+                            <core:Icon src="sap-icon://line-chart"
+                                       class="metricIcon"/>
+
+                            <Text text="UNITS AT RISK"
+                                  class="metricLabel"/>
+
+                            <Title text="50"
+                                   level="H1"
+                                   class="metricValue"/>
+
+                            <ObjectStatus text="Production impact"
+                                          state="Error"/>
+                        </VBox>
+
+                        <VBox class="metricCard">
+                            <core:Icon src="sap-icon://factory"
+                                       class="metricIcon"/>
+
+                            <Text text="AFFECTED PLANT"
+                                  class="metricLabel"/>
+
+                            <Title text="Plant A"
+                                   level="H2"
+                                   class="metricValue"/>
+
+                            <Text text="Production failure"/>
+                        </VBox>
+
+                        <VBox class="metricCard">
+                            <core:Icon src="sap-icon://shipping-status"
+                                       class="metricIcon"/>
+
+                            <Text text="RECOVERY OPTIONS"
+                                  class="metricLabel"/>
+
+                            <Title text="02"
+                                   level="H1"
+                                   class="metricValue"/>
+
+                            <ObjectStatus text="Alternatives identified"
+                                          state="Success"/>
+                        </VBox>
+
+                    </FlexBox>
+                </VBox>
+
+
+                <!-- DISRUPTION ALERT -->
+                <VBox class="sectionBlock">
+
+                    <Title text="Disruption Intelligence"
+                           level="H2"
+                           class="sectionTitle"/>
+
+                    <VBox class="disruptionCard">
+
+                        <HBox justifyContent="SpaceBetween"
+                              alignItems="Center"
+                              wrap="Wrap">
+
+                            <ObjectStatus text="OPEN DISRUPTION"
+                                          state="Error"/>
+
+                            <ObjectStatus text="HIGH IMPACT"
+                                          state="Error"
+                                          icon="sap-icon://warning2"/>
+                        </HBox>
+
+                        <Title text="Plant A — Production Failure"
+                               level="H3"
+                               class="cardHeadline"/>
+
+                        <Text
+                            text="Production capacity has dropped from 100 to 50 units."
+                            class="cardDescription"/>
+
+                        <MessageStrip
+                            text="50 units are currently at risk. Immediate recovery planning is required."
+                            type="Warning"
+                            showIcon="true"/>
+                    </VBox>
+                </VBox>
+
+
+                <!-- RECOVERY INTELLIGENCE -->
+                <VBox class="sectionBlock">
+
+                    <Title text="RESILINK Recovery Intelligence"
+                           level="H2"
+                           class="sectionTitle"/>
+
+                    <VBox class="recoveryCard">
+
+                        <ObjectStatus
+                            text="AI-ASSISTED RECOVERY"
+                            state="Success"
+                            icon="sap-icon://lightbulb"/>
+
+                        <Title text="Recommended Recovery Strategy"
+                               level="H3"
+                               class="cardHeadline"/>
+
+                        <Text
+                            text="Reallocate affected production to alternative plants with available capacity."
+                            class="cardDescription"/>
+
+                        <Title text="Suggested Alternative Plants"
+                               level="H4"/>
+
+                        <FlexBox wrap="Wrap" class="plantRow">
+
+                            <VBox class="plantCard">
+                                <core:Icon src="sap-icon://factory"
+                                           class="plantIcon"/>
+
+                                <Title text="Plant B" level="H3"/>
+                                <Text text="Bengaluru"/>
+
+                                <ObjectStatus
+                                    text="80 units available"
+                                    state="Success"/>
+                            </VBox>
+
+                            <VBox class="plantCard">
+                                <core:Icon src="sap-icon://factory"
+                                           class="plantIcon"/>
+
+                                <Title text="Plant C" level="H3"/>
+                                <Text text="Chennai"/>
+
+                                <ObjectStatus
+                                    text="100 units available"
+                                    state="Success"/>
+                            </VBox>
+
+                        </FlexBox>
+
+                        <MessageStrip
+                            text="Recovery options identified. Final allocation requires planner approval."
+                            type="Information"
+                            showIcon="true"/>
+                    </VBox>
+                </VBox>
+
+
+                <!-- FOOTER -->
+                <Text
+                    text="RESILINK  |  Intelligent Supply Chain Resilience"
+                    class="dashboardFooter"/>
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
