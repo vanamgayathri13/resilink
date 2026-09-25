@@ -9,4 +9,8 @@ service ResilinkService {
     entity Disruptions as projection on db.Disruptions;
 
     action analyzeDisruption(disruptionID: String) returns String;
+
+    action approveRecovery(disruptionID: String) returns String;
+
+    action rejectRecovery(disruptionID: String) returns String;
 }

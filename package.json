@@ -28,6 +28,9 @@
     "requires": {
       "[production]": {
         "auth": "xsuaa"
+      },
+      "[hybrid]": {
+        "db": "hana"
       }
     }
   },

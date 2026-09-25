@@ -1,2 +1,3 @@
 ID,title,description,affectedQuantity,status,plant_ID
 dis-001,Plant A Production Failure,Production capacity reduced due to equipment failure,50,Open,plant-001
+dis-002,Plant B Supply Delay,Raw material delivery delayed due to supplier issues,30,Open,plant-002

@@ -1,26 +1,52 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
+    "sap/ui/model/odata/v4/ODataModel",
     "com/resilink/dashboard/resilinkdashboard/model/models"
-], (UIComponent, models) => {
+], (
+    UIComponent,
+    ODataModel,
+    models
+) => {
     "use strict";
 
-    return UIComponent.extend("com.resilink.dashboard.resilinkdashboard.Component", {
-        metadata: {
-            manifest: "json",
-            interfaces: [
-                "sap.ui.core.IAsyncContentCreation"
-            ]
-        },
+    return UIComponent.extend(
+        "com.resilink.dashboard.resilinkdashboard.Component",
+        {
 
-        init() {
-            // call the base component's init function
-            UIComponent.prototype.init.apply(this, arguments);
+            metadata: {
+                manifest: "json",
+                interfaces: [
+                    "sap.ui.core.IAsyncContentCreation"
+                ]
+            },
 
-            // set the device model
-            this.setModel(models.createDeviceModel(), "device");
+            init() {
 
-            // enable routing
-            this.getRouter().initialize();
+                UIComponent.prototype.init.apply(this, arguments);
+
+                // Device model
+                this.setModel(
+                    models.createDeviceModel(),
+                    "device"
+                );
+
+                // Connect dashboard to CAP OData service
+                const oDataModel = new ODataModel({
+                    serviceUrl: "/resilink/",
+                    synchronizationMode: "None",
+                    operationMode: "Server",
+                    autoExpandSelect: true,
+                    earlyRequests: true
+                });
+
+                // Set OData model as the default model
+                this.setModel(oDataModel);
+
+                console.log("RESILINK: OData model connected");
+                console.log("RESILINK: Service URL = /resilink/");
+
+                this.getRouter().initialize();
+            }
         }
-    });
+    );
 });
