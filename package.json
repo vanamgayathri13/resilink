@@ -8,17 +8,16 @@
     "@sap/xssec": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^3",
     "@sap/cds-dk": "^10",
     "cds-plugin-ui5": "^0.17.0",
     "rimraf": "^5.0.5",
     "mbt": "^1.2.49"
   },
   "scripts": {
-    "start": "cds-serve",
-    "watch-resilink-plants": "cds watch --open com.resilink.plants.resilinkplants/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-resilink-disruptions": "cds watch --open com.resilink.disruptions.resilinkdisruptions/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-resilink-dashboard": "cds watch --open com.resilink.dashboard.resilinkdashboard/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "start": "cds-serve --profile hybrid",
+    "watch-resilink-plants": "cds watch --profile hybrid --open com.resilink.plants.resilinkplants/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-resilink-disruptions": "cds watch --profile hybrid --open com.resilink.disruptions.resilinkdisruptions/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-resilink-dashboard": "cds watch --profile hybrid --open com.resilink.dashboard.resilinkdashboard/index.html?sap-ui-xx-viewCache=false --livereload false",
     "undeploy": "cf undeploy Resilink --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
