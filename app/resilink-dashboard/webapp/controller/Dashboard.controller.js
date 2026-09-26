@@ -235,6 +235,47 @@ sap.ui.define([
 
 
                     // =================================================
+                    // UPDATE DYNAMIC SECTIONS
+                    // =================================================
+
+                    const oDisruptionSection =
+                        this.getView().byId(
+                            "disruptionIntelligenceSection"
+                        );
+
+                    const oRecoverySection =
+                        this.getView().byId(
+                            "recoveryIntelligenceSection"
+                        );
+
+                    const oDecisionSection =
+                        this.getView().byId(
+                            "recoveryDecisionSection"
+                        );
+
+                    const bHasActiveDisruption =
+                        aActiveDisruptions.length > 0;
+
+                    if (oDisruptionSection) {
+                        oDisruptionSection.setVisible(
+                            bHasActiveDisruption
+                        );
+                    }
+
+                    if (oRecoverySection) {
+                        oRecoverySection.setVisible(
+                            bHasActiveDisruption
+                        );
+                    }
+
+                    if (oDecisionSection) {
+                        oDecisionSection.setVisible(
+                            bHasActiveDisruption
+                        );
+                    }
+
+
+                    // =================================================
                     // UPDATE KPI CARDS
                     // =================================================
 
@@ -419,24 +460,14 @@ sap.ui.define([
 
 
                     // =================================================
-                    // ALTERNATIVES
+                    // CURRENT RECOMMENDATION
                     // =================================================
 
-                    const aAlternatives =
-                        oAnalysis.alternatives || [];
-
-
-                    // =================================================
-                    // RECOMMENDED ALLOCATIONS
-                    // =================================================
+                    const oRecommendation =
+                        oAnalysis.recommendation || {};
 
                     const aRecommendedAllocations =
-                        aAlternatives.filter(
-                            (oPlant) =>
-                                Number(
-                                    oPlant.recommendedAllocation || 0
-                                ) > 0
-                        );
+                        oRecommendation.allocations || [];
 
 
                     // =================================================
@@ -444,39 +475,87 @@ sap.ui.define([
                     // =================================================
 
                     let sAllocationText =
-                        "No alternative capacity available.";
+                        oRecommendation.type ||
+                        "No recovery recommendation available.";
 
 
                     if (
+                        oRecommendation.type === "Production Shift" &&
+                        aRecommendedAllocations.length > 0
+                    ) {
+
+                        const aActiveAllocations =
+                            aRecommendedAllocations.filter(
+                                (oPlant) =>
+                                    Number(
+                                        oPlant.recommendedAllocation || 0
+                                    ) > 0
+                            );
+
+                        if (aActiveAllocations.length > 0) {
+
+                            sAllocationText =
+                                aActiveAllocations
+                                    .map(
+                                        (oPlant) =>
+                                            oPlant.plant +
+                                            " → " +
+                                            oPlant.recommendedAllocation +
+                                            " Units"
+                                    )
+                                    .join(" | ");
+                        }
+
+                    } else if (
+                        oRecommendation.type === "Inventory Reallocation" &&
                         aRecommendedAllocations.length > 0
                     ) {
 
                         sAllocationText =
                             aRecommendedAllocations
+                                .filter(
+                                    (oAllocation) =>
+                                        Number(
+                                            oAllocation.recommendedAllocation || 0
+                                        ) > 0
+                                )
                                 .map(
-                                    (oPlant) => {
-
-                                        return (
-                                            oPlant.plant +
-                                            " → " +
-                                            oPlant.recommendedAllocation +
-                                            " Units"
-                                        );
-
-                                    }
+                                    (oAllocation) =>
+                                        (
+                                            oAllocation.sourcePlantID ||
+                                            "Source plant"
+                                        ) +
+                                        " → " +
+                                        oAllocation.recommendedAllocation +
+                                        " Units"
                                 )
                                 .join(" | ");
+
+                    } else if (
+                        oRecommendation.type === "Alternate Supplier"
+                    ) {
+
+                        sAllocationText =
+                            (
+                                oRecommendation.supplier ||
+                                "Alternate supplier"
+                            ) +
+                            " → " +
+                            (
+                                oRecommendation.coverage || 0
+                            ) +
+                            " Units";
 
                     }
 
 
                     // =================================================
-                    // TOTAL ALLOCATED
+                    // COVERAGE
                     // =================================================
 
                     const iTotalAllocated =
                         Number(
-                            oAnalysis.totalAllocated || 0
+                            oRecommendation.coverage || 0
                         );
 
 
@@ -486,7 +565,11 @@ sap.ui.define([
 
                     const iRemainingShortage =
                         Number(
-                            oAnalysis.remainingShortage || 0
+                            oRecommendation.remainingShortage ??
+                            Math.max(
+                                iShortage - iTotalAllocated,
+                                0
+                            )
                         );
 
 
@@ -523,6 +606,79 @@ sap.ui.define([
 
                 }
 
+            },
+
+
+            // =====================================================
+            // RESET DEMO
+            // =====================================================
+
+            async onResetDemo() {
+
+                try {
+
+                    const oModel =
+                        this.getOwnerComponent().getModel();
+
+                    if (!oModel) {
+
+                        MessageBox.error(
+                            "OData model is not available."
+                        );
+
+                        return;
+                    }
+
+                    const oAction =
+                        oModel.bindContext(
+                            "/resetDemo(...)"
+                        );
+
+                    await oAction.execute();
+
+                    const oResult =
+                        oAction
+                            .getBoundContext()
+                            .getObject();
+
+                    const oResponse =
+                        typeof oResult.value === "string"
+                            ? JSON.parse(oResult.value)
+                            : oResult.value || oResult;
+
+                    if (oResponse.error) {
+
+                        MessageBox.error(
+                            oResponse.error
+                        );
+
+                        return;
+                    }
+
+                    MessageBox.success(
+                        "Demo scenario reset successfully.",
+                        {
+                            title: "RESILINK"
+                        }
+                    );
+
+                    await this._loadDashboardData();
+
+                } catch (oError) {
+
+                    console.error(
+                        "RESILINK Demo Reset Error:",
+                        oError
+                    );
+
+                    MessageBox.error(
+                        "Demo reset failed." +
+                        (
+                            oError.message ||
+                            "Please check the backend."
+                        )
+                    );
+                }
             },
 
 

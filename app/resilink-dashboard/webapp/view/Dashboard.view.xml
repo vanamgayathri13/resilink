@@ -44,11 +44,25 @@
 
                         </VBox>
 
-                        <ObjectStatus
-                            text="NETWORK MONITORING"
-                            state="Success"
-                            icon="sap-icon://connected"
-                            class="heroStatus"/>
+                        <HBox
+                            alignItems="Center"
+                            class="sapUiSmallMarginBegin">
+
+                            <ObjectStatus
+                                text="NETWORK MONITORING"
+                                state="Success"
+                                icon="sap-icon://connected"
+                                class="heroStatus"/>
+
+                            <Button
+                                id="resetDemoButton"
+                                text="Reset Demo"
+                                type="Transparent"
+                                icon="sap-icon://refresh"
+                                press=".onResetDemo"
+                                class="sapUiSmallMarginBegin"/>
+
+                        </HBox>
 
                     </HBox>
 
@@ -201,7 +215,9 @@
                 <!-- DISRUPTION INTELLIGENCE -->
                 <!-- ================================================= -->
 
-                <VBox class="sectionBlock">
+                <VBox
+                    id="disruptionIntelligenceSection"
+                    class="sectionBlock">
 
                     <Title
                         text="Disruption Intelligence"
@@ -253,7 +269,9 @@
                 <!-- RECOVERY INTELLIGENCE -->
                 <!-- ================================================= -->
 
-                <VBox class="sectionBlock">
+                <VBox
+                    id="recoveryIntelligenceSection"
+                    class="sectionBlock">
 
                     <Title
                         text="RESILINK Recovery Intelligence"
@@ -357,7 +375,9 @@
                 <!-- RECOVERY DECISION -->
                 <!-- ================================================= -->
 
-                <VBox class="sectionBlock">
+                <VBox
+                    id="recoveryDecisionSection"
+                    class="sectionBlock">
 
                     <Title
                         text="Recovery Decision"
